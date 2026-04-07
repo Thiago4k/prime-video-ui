@@ -1,8 +1,3 @@
-/* Espaçamento superior no conteúdo do rodapé */
-footer .footer-content {
-    padding-top: 50px;
-}
-
 /* Ajuste para nomes de detalhes com atributo data-monarch */ 
 .details-nome[data-monarch] {
     max-width: 99%;
@@ -486,36 +481,38 @@ a:hover {
     margin-left: 6px;
 }
 
-/* Responsividade para todos os dispositivos */
+/* ================= RESPONSIVIDADE ================= */
 @media (max-width: 1200px) {
     .sliders-container {
-        padding-left: 2%;
-        padding-right: 2%;
+        padding-left: 2vw;
+        padding-right: 2vw;
     }
     .movie-card {
-        min-width: 200px;
-        width: 200px;
-        height: 112px;
-    }
-    .slider-title {
-        font-size: 2vw;
-        line-height: 2.5vw;
+        min-width: 210px;
+        width: 210px;
+        height: 120px;
     }
 }
 
 @media (max-width: 900px) {
     .navbar {
-        flex-direction: column;
-        height: auto;
-        padding: 0 2%;
-    }
-    .navbar-left, .navbar-right {
-        flex-direction: row;
-        gap: 10px;
+        height: 56px;
+        padding: 0 2vw;
     }
     .logo {
         width: 70px;
         margin-right: 10px;
+    }
+    .nav-links {
+        gap: 10px;
+        font-size: 12px;
+    }
+    .profile-icon {
+        width: 32px;
+        height: 32px;
+    }
+    .sliders-container {
+        padding-top: 70px;
     }
     .movie-card {
         min-width: 160px;
@@ -523,24 +520,39 @@ a:hover {
         height: 90px;
     }
     .slider-title {
-        font-size: 3vw;
-        line-height: 3.5vw;
+        font-size: 2.2vw;
+        line-height: 2.2vw;
     }
 }
 
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: row;
+        height: auto;
+        padding: 0 1vw;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-left {
+        justify-content: flex-start;
+        flex: 1 1 auto;
+    }
+    .navbar-right {
+        justify-content: flex-end;
+        flex: 1 1 auto;
+        gap: 8px;
+    }
+    .logo {
+        width: 54px;
     }
     .sliders-container {
-        padding-left: 1%;
-        padding-right: 1%;
-        padding-top: 80px;
+        padding-top: 54px;
+        padding-left: 0.5vw;
+        padding-right: 0.5vw;
     }
     .movie-row {
         gap: 4px;
-        padding: 10px 1% 30px 1%;
-        margin: 0 -1%;
+        padding: 8px 0 30px 0;
     }
     .movie-card {
         min-width: 120px;
@@ -548,51 +560,54 @@ a:hover {
         height: 70px;
     }
     .slider-title {
-        font-size: 4vw;
-        line-height: 4.5vw;
+        font-size: 3.5vw;
+        line-height: 3.5vw;
     }
-    .footer-links {
-        grid-template-columns: repeat(2, 1fr);
+    .card-details {
+        padding: 10px 6px;
+        font-size: 0.85em;
+    }
+    .details-buttons {
+        flex-direction: column;
+        gap: 6px;
+    }
+    .btn-icon {
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+    }
+    .details-tags {
+        font-size: 9px;
+        gap: 3px;
+    }
+    .details-breve-descricao {
+        font-size: 0.72rem;
+        min-height: 12px;
     }
     .footer-content {
+        padding: 0 2vw;
+    }
+    .footer-links {
+        grid-template-columns: 1fr;
         font-size: 12px;
     }
 }
 
-@media (max-width: 480px) {
-    .navbar {
-        flex-direction: column;
-        height: auto;
-        padding: 0 1%;
-    }
+@media (max-width: 400px) {
     .logo {
-        width: 54px;
-    }
-    .navbar-right {
-        gap: 6px;
-    }
-    .profile-icon {
-        width: 32px;
-        height: 32px;
-    }
-    .sliders-container {
-        padding-top: 60px;
+        width: 38px;
     }
     .movie-card {
-        min-width: 90px;
-        width: 90px;
-        height: 50px;
+        min-width: 80px;
+        width: 80px;
+        height: 48px;
     }
     .slider-title {
-        font-size: 5vw;
-        line-height: 5.5vw;
-    }
-    .footer-links {
-        grid-template-columns: 1fr;
-        font-size: 11px;
+        font-size: 4.5vw;
+        line-height: 4.5vw;
     }
     .footer-content {
-        font-size: 11px;
+        font-size: 10px;
     }
 }
 
@@ -649,5 +664,10 @@ footer {
   width: 90%;
   opacity: 0.95;
   box-shadow: 0 0 6px 0 #00345933;
+}
+
+/* Espaçamento superior no conteúdo do rodapé */
+footer .footer-content {
+    padding-top: 50px;
 }
 

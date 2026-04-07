@@ -12,7 +12,7 @@
   padding-top: 2vh;
 
   background-image: 
-      linear-gradient(rgba(16, 30, 44, 0.90), rgba(16, 30, 44, 0.90)), 
+      linear-gradient(rgba(16, 30, 44, 0.85), rgba(16, 30, 44, 0.85)), 
        url('assets/fundo.jpg');
     
   background-size: cover;
@@ -54,12 +54,12 @@
 
 /* Rótulo para escolha de perfil */
 .choose-profile-label {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 500;
-  font-family: Amazon Ember, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-style: oblique;
   display: block;
   margin-bottom: 0.9rem;
-  color: #b6c1c4;
+  color: #cfc5c5;
   text-align: left;
 }
 
@@ -215,37 +215,162 @@ html, body {
 
 /* Esconde barras de rolagem no Chrome/Safari */
 body::-webkit-scrollbar, html::-webkit-scrollbar {
-  display: none !important;
+  display: none;
 }
 
-/* Responsividade para telas até 1100px */
-@media (max-width: 1100px) {
-  main { width: 98vw; }
-  .profiles { grid-template-columns: repeat(3, minmax(0,1fr)); }
+/* Responsividade para Laptops e Telas Médias (até 1200px) */
+@media (max-width: 1200px) {
+    main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 4rem; /* Mantém o recuo do topo */
+        
+        /* SEGURANÇA: Padding lateral evita que o conteúdo encoste na borda */
+        padding-left: 30px;
+        padding-right: 30px;
+        box-sizing: border-box; /* Garante que o padding não "empurre" o layout para fora */
+    }
+
+    .choose-profile-label {
+        display: block;
+        font-size: 1.5rem;
+        color: #cccccc;
+        margin-top: 5rem;
+        margin-bottom: 2.5rem;
+        text-align: left;
+        
+        /* Alinhamento sincronizado com o grid */
+        width: 100%;
+        max-width: 850px; /* Reduz levemente a largura máxima para telas menores que o Full HD */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profiles {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Mantém 4 colunas nesta faixa */
+        gap: 2rem;
+        width: 100%;
+        max-width: 850px; /* Mesma largura do label para manter o alinhamento */
+        margin: 0 auto;
+        justify-items: center;
+        padding: 0;
+        list-style: none;
+    }
+
+    .profile img {
+        /* Imagem responsiva: diminui suavemente se a tela apertar entre 1200px e 900px */
+        width: clamp(130px, 15vw, 150px); 
+        height: auto;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
 }
 
-/* Responsividade para telas até 900px */
+/* Responsividade para Tablets (Telas de até 900px) */
 @media (max-width: 900px) {
-  .profiles { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .profile img { width: 100px; height: 100px; }
-  section h2 { font-size: 1.2rem; }
+    main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 5%; /* Cria uma margem de segurança de 5% em cada lado */
+        box-sizing: border-box; /* Impede que o padding "estoure" a tela */
+    }
+
+    .choose-profile-label {
+        width: 100%;
+        max-width: 650px; /* Alinhado com o novo tamanho do grid */
+        font-size: 1.3rem;
+        text-align: left;
+        margin: 4rem auto 2.5rem auto;
+        padding-left: 10px;
+    }
+
+    .profiles {
+        display: grid;
+        /* O segredo: as colunas agora ocupam o espaço disponível sem ultrapassar a tela */
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 1rem; 
+        width: 100%;
+        max-width: 650px; /* Reduzi para garantir que as 4 colunas caibam no iPad Mini */
+        margin: 0 auto;
+        justify-items: center;
+    }
+
+    .profile img {
+        /* A imagem agora é totalmente responsiva: ela diminui se a tela apertar */
+        width: 100%; 
+        max-width: 120px; /* Tamanho máximo para não ficar gigante */
+        height: auto;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .profile figcaption {
+        font-size: 0.9rem;
+        white-space: nowrap; /* Evita que o nome quebre em duas linhas */
+    }
 }
 
-/* Responsividade para telas até 600px */
+/* Responsividade para Celulares (Telas de até 600px) */
 @media (max-width: 600px) {
-  main { margin-top: 1.2rem; }
-  .profiles { grid-template-columns: 1fr; gap: 0.7rem; }
-  .profile img { width: 70px; height: 70px; }
-  .profile figcaption { font-size: 0.92rem; margin-top: 0.5rem; }
-  section h2 { font-size: 1rem; }
-  header { padding: 0.7rem 1rem 0.2rem 1rem; }
-}
-
-/* Responsividade para telas até 400px */
-@media (max-width: 400px) {
-  .profile img { width: 54px; height: 54px; }
-  .profile figcaption { font-size: 0.85rem; }
-  section h2 { font-size: 0.9rem; }
+    main {
+        margin-top: 1.5rem;   /* Reduz o recuo do topo da página */
+        padding: 0 15px;      /* Margem de segurança nas laterais */
+        box-sizing: border-box;
+    }
+    #profiles-title {
+        font-size: 1.5rem;    /* Título menor para não ocupar a tela toda */
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    .choose-profile-label {
+        display: block;
+        font-size: 1rem;      /* Texto "Selecionar Perfil" menor */
+        color: #cccccc;
+        margin-top: 2.5rem;   /* Espaço entre o título e este texto */
+        margin-bottom: 1.5rem;/* Espaço entre este texto e as fotos */
+        
+        /* Alinhamento à esquerda seguindo a largura das fotos */
+        width: 90%;
+        max-width: 400px; 
+        text-align: left;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 5px;
+    }
+    .profiles {
+        display: grid;
+        /* MUITO IMPORTANTE: Muda de 4 para 2 colunas no celular */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 1.5rem;          /* Espaço entre as fotos */
+        width: 90%;
+        max-width: 400px;
+        margin: 0 auto;
+        justify-items: center;
+        padding: 0;
+        list-style: none;
+    }
+    .profile img {
+        /* Fotos menores para caberem lado a lado */
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+    }
+    .profile figcaption {
+        font-size: 0.9rem;
+        margin-top: 8px;
+        color: #ffffff;
+    }
+    .add-profile-container {
+        margin-top: 2rem;
+    }
 }
 
 /* Configuração da tela cheia da Splash */
