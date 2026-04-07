@@ -1,0 +1,308 @@
+﻿body {
+    /* Configurações de layout e fonte do bloco que você achou */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Amazon Ember", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #ffffff80;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 2vh;
+
+  background-image: 
+      linear-gradient(rgba(16, 30, 44, 0.90), rgba(16, 30, 44, 0.90)), 
+       url('assets/fundo.jpg');
+    
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #101e2c;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Estilo do botão para adicionar perfil */
+.add-profile {
+  border: 2px dashed #00a8ff;
+  border-radius: 18px;
+  background: none;
+  transition: border-color 0.2s;
+  min-width: 170px;
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+  
+/* Efeito ao passar o mouse ou focar no botão de adicionar perfil */
+.add-profile:hover,
+.add-profile:focus {
+  border-color: #0077b6;
+}
+
+/* Centraliza o ícone SVG do botão de adicionar perfil */
+.add-profile-icon svg {
+  display: block;
+  margin: -0.5px auto 1.0rem auto; /* valor negativo para subir o ícone */
+}
+
+/* Rótulo para escolha de perfil */
+.choose-profile-label {
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-family: Amazon Ember, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: block;
+  margin-bottom: 0.9rem;
+  color: #b6c1c4;
+  text-align: left;
+}
+
+/* Cabeçalho fixo no topo da página */
+header {
+  width: 98vw;
+  padding: 1.2rem 2rem 0.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+/* Título do cabeçalho */
+header h1 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+/* Área principal do conteúdo */
+main {
+  width: min(1080px, 100%);
+  margin-top: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Seções do conteúdo principal */
+section {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Título das seções principais */
+section h2 {
+  font-size: 2.1rem;
+  color: #e8f4ff;
+  font-weight: 700;
+  font-style: italic;
+  margin-top: 3.0rem;
+  margin-bottom: 0.5rem; /* reduzido para aproximar dos perfis */
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* Grid de perfis de usuário */
+.profiles {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 2.2rem 1.2rem;
+  justify-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  max-height: 70vh;    /* Altura máxima (70% da tela) */
+  overflow-y: auto;    /* A barra só aparece se tiver muitos perfis */
+  overflow-x: hidden;  /* Garante que não apareça barra embaixo */
+  padding-right: 15px; 
+}
+
+/* Estiliza a barra DENTRO do container .profiles */
+.profiles::-webkit-scrollbar {
+    width: 6px; /* Bem fininha */
+}
+
+.profiles::-webkit-scrollbar-thumb {
+    background-color: #425265; 
+    border-radius: 10px;
+}
+
+.profiles::-webkit-scrollbar-track {
+    background: transparent; /* Fica invisível quando não está rolando */
+}
+
+/* Cartão individual de perfil */
+.profile {
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.18s cubic-bezier(.4,0,.2,1);
+}
+
+/* Efeito de destaque ao focar ou passar o mouse no perfil */
+.profile:focus-visible,
+.profile:hover {
+  outline: none;
+  transform: translateY(-6px) scale(1.04);
+}
+
+/* Container da imagem do perfil */
+.profile figure {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Imagem do perfil (avatar redondo) */
+.profile img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.22);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.38);
+  background: #222;
+  transition: box-shadow 0.18s cubic-bezier(.4,0,.2,1), border-color 0.18s cubic-bezier(.4,0,.2,1), transform 0.18s cubic-bezier(.4,0,.2,1);
+  display: block;
+}
+
+/* Efeito ao passar o mouse/focar na imagem do perfil */
+.profile:hover img,
+.profile:focus-visible img {
+  border-color: #00a8ff;
+  box-shadow: 0 0 16px 0 rgba(0,168,255,0.22), 0 8px 32px 0 rgba(0,0,0,0.18);
+  transform: scale(1.04);
+}
+
+/* Nome do perfil abaixo do avatar */
+.profile figcaption {
+  margin-top: 1.1rem;
+  font-size: 1.08rem;
+  color: #e7edf7;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+/* Remove barras de rolagem e impede rolagem */
+html, body {
+  overflow: hidden !important;
+  height: 100vh;
+  overscroll-behavior: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Esconde barras de rolagem no Chrome/Safari */
+body::-webkit-scrollbar, html::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Responsividade para telas até 1100px */
+@media (max-width: 1100px) {
+  main { width: 98vw; }
+  .profiles { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+
+/* Responsividade para telas até 900px */
+@media (max-width: 900px) {
+  .profiles { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .profile img { width: 100px; height: 100px; }
+  section h2 { font-size: 1.2rem; }
+}
+
+/* Responsividade para telas até 600px */
+@media (max-width: 600px) {
+  main { margin-top: 1.2rem; }
+  .profiles { grid-template-columns: 1fr; gap: 0.7rem; }
+  .profile img { width: 70px; height: 70px; }
+  .profile figcaption { font-size: 0.92rem; margin-top: 0.5rem; }
+  section h2 { font-size: 1rem; }
+  header { padding: 0.7rem 1rem 0.2rem 1rem; }
+}
+
+/* Responsividade para telas até 400px */
+@media (max-width: 400px) {
+  .profile img { width: 54px; height: 54px; }
+  .profile figcaption { font-size: 0.85rem; }
+  section h2 { font-size: 0.9rem; }
+}
+
+/* Configuração da tela cheia da Splash */
+#splash-screen {
+    position: fixed; /* Fixa na frente de tudo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #101e2c; /* Fundo igual à escolha de perfis */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Garante que fique acima de qualquer menu ou perfil */
+    transition: opacity 0.6s ease; /* Transição suave para quando formos esconder */
+    overflow: hidden;
+}
+
+/* Classe que o JavaScript vai usar para esconder a tela */
+.hidden {
+    opacity: 0;
+    pointer-events: none; /* Impede que o usuário clique na splash invisível */
+}
+
+.splash-logo {
+    width: 500px; /* Base equilibrada: nem pequena demais para pixelar, nem grande demais para pesar */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    animation: logoZoomSumindo 3s ease-in-out forwards;
+    opacity: 0;
+    will-change: transform, opacity; /* A MÁGICA PARA FLUIDEZ: */
+    transform: translateZ(0); /* Força 3D nativo */
+    image-rendering: auto; /* Isso avisa ao navegador para não tentar "otimizar" demais a imagem */
+    shape-rendering: geometricPrecision; 
+}
+
+@keyframes logoZoomSumindo {
+    0% {
+        transform: scale(0.5) translateZ(0);
+        opacity: 0;
+    }
+    15% {
+        transform: scale(0.65) translateZ(0);
+        opacity: 1;
+    }
+    85% {
+        transform: scale(0.7) translateZ(0);
+        opacity: 1;
+    }
+    100% {
+        /* Scale de 6 em cima de 500px já cobre a tela toda */
+        transform: scale(6) translateZ(0);
+        opacity: 0;
+    }
+}
+
+
+
+

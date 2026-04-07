@@ -1,0 +1,653 @@
+/* Espaçamento superior no conteúdo do rodapé */
+footer .footer-content {
+    padding-top: 50px;
+}
+
+/* Ajuste para nomes de detalhes com atributo data-monarch */ 
+.details-nome[data-monarch] {
+    max-width: 99%;
+    padding-right: 6px;
+    overflow: visible;
+}
+
+/* Caixa de ícone de resolução (ex: HD, 4K) */
+.resolucao-icone-caixa {
+    display: inline-block;
+    min-width: 12px;
+    padding: 0 2px;
+    margin-left: 1px;
+    border-radius: 2px;
+    background: #353535;
+    color: #b0b0b0;
+    font-size: 0.68em;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    vertical-align: -4px;
+    position: relative;
+    top: -4px;
+    box-shadow: 0 1px 2px #0003;
+    border: 1px solid #444;
+    opacity: 0.97;
+    text-align: center;
+    line-height: 1.05;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Opcional: destaque ao passar o mouse */
+.resolucao-icone-caixa:hover {
+    background: #444;
+    color: #fff;
+}
+
+/* Nome do conteúdo nos cards */
+.details-nome {
+    margin: 12px 0 4px 0;
+    color: #fff;
+    font-size: 0.80rem;
+    font-weight: bold;
+    font-family: "Amazon Ember", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 8px #000a;
+    line-height: 1.35;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    padding-bottom: 2px;
+}
+
+/* Ícone de resolução ao lado do nome */
+.resolucao-icone {
+    margin-left: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0.68em;
+    font-weight: bold;
+    opacity: 0.95;
+    letter-spacing: 0.2px;
+}
+
+/* Breve descrição nos cards */
+.details-breve-descricao {
+    margin-top: 8px;
+    color: #e8f4ff;
+    font-size: 0.80rem;
+    opacity: 0.92;
+    text-align: left;
+    line-height: 1.3;
+    font-style: italic;
+    min-height: 18px;
+}
+
+/* Variáveis CSS para cores e temas */
+:root {
+    --prime-blue: #101e2c;
+    --prime-blue-light: #182c44;
+    --prime-cyan: #00a8ff;
+    --prime-cyan-dark: #0077b6;
+    --text-color: #e8f4ff;
+    --background-gradient: #101e2c;
+}
+
+/* Reset de margens, paddings e box-sizing global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo base do body */
+body {
+    font-family: "Amazon Ember", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--prime-blue);
+    color: var(--text-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Links padrão */
+a {
+    text-decoration: none;
+    color: #e5e5e5;
+    transition: color 0.3s;
+}
+
+/* Efeito hover nos links */
+a:hover {
+    color: #b3b3b3;
+}
+
+/* Navbar (barra de navegação fixa no topo) */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%;
+    height: 70px;
+    z-index: 1000;
+    background-color: var(--prime-blue);
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+}
+
+/* Lados esquerdo e direito da navbar */
+.navbar-left,
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Logo do Prime Video na navbar */
+.logo {
+    width: 92px;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+/* Lista de links de navegação */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+}
+
+/* Estilo dos links de navegação */
+.nav-links a {
+    color: #e8f4ff;
+    font-weight: 500;
+    font-size: 1.08rem;
+    letter-spacing: 0.02em;
+    padding: 6px 18px 6px 18px;
+    border-radius: 18px;
+    transition: background 0.18s, color 0.18s;
+    background: none;
+    position: relative;
+    text-shadow: 0 1px 8px #0d2d55cc;
+}
+
+/* Efeito hover e ativo nos links de navegação */
+.nav-links a:hover,
+.nav-links .active {
+    background: linear-gradient(90deg, #00a8ff 0%, #0077b6 100%);
+    color: #fff;
+    text-shadow: 0 2px 12px #00a8ff99;
+}
+
+/* Ícones gerais (ex: lupa de busca) */
+.icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Link para área kids/perfil */
+.kids-link {
+    font-size: 14px;
+}
+
+/* Notificação na navbar */
+.nav-notification {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Badge de notificação */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background-color: var(--prime-cyan);
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Menu do perfil do usuário */
+.profile-menu {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* Ícone do perfil do usuário */
+.profile-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Sliders (carrosséis de filmes/séries) */
+/* Container dos sliders/carrosséis */
+.sliders-container {
+    padding: 0 4%;
+    padding-top: 100px;
+    /* Space for navbar */
+    position: relative;
+    z-index: 3;
+    padding-bottom: 100px;
+}
+
+/* Seção de cada slider */
+.slider-section {
+    margin-bottom: -2.5vw;
+}
+
+/* Cabeçalho do slider (título e indicadores) */
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 12px;
+}
+
+/* Título do slider */
+.slider-title {
+    font-size: 1.25vw;
+    font-weight: bold;
+    color: #e5e5e5;
+    line-height: 1.25vw;
+}
+
+/* Indicadores de página do slider */
+.slider-indicators {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 4px;
+}
+
+/* Bolinhas dos indicadores do slider */
+.slider-indicators div {
+    width: 12px;
+    height: 2px;
+    background-color: #4d4d4d;
+}
+
+/* Indicador ativo do slider */
+.slider-indicators div.active {
+    background-color: #aaa;
+}
+
+/* Linha de cards de filmes/séries */
+.movie-row {
+    display: flex;
+    gap: 8px;
+    /* Espaço pequeno entre os cards de filmes/séries */
+    overflow-x: visible;
+    /* Permite que os cards expandidos sejam exibidos fora desta caixa verticalmente */
+    padding: 10px 4% 50px 4%;
+    /* Adiciona preenchimento inferior para segurar o modal em expansão */
+    margin: 0 -4%;
+    /* Puxe as bordas para fora para que não haja sobreposição de preenchimento do contêiner */
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Esconde a barra de rolagem horizontal dos sliders */
+.movie-row::-webkit-scrollbar {
+    display: none;
+}
+
+/* Card individual de filme/série */
+.movie-card {
+    min-width: 250px;
+    width: 250px;
+    height: 140px;
+    background-color: #222222;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s, border-radius 0.3s 0s, z-index 0s 0.3s, box-shadow 0.3s 0s;
+    position: relative;
+    z-index: 1;
+    transform-origin: center center;
+    /* Default origin */
+}
+
+/* Origem da transformação para cards na borda esquerda */
+.movie-card.origin-left {
+    transform-origin: left center;
+}
+
+/* Origem da transformação para cards na borda direita */
+.movie-card.origin-right {
+    transform-origin: right center;
+}
+
+/* Efeito de destaque ao passar o mouse no card */
+.movie-card:hover {
+    transform: scale(1.6) translateY(-5%);
+    z-index: 99;
+    border-radius: 6px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s, border-radius 0.3s 0.6s, box-shadow 0.3s 0.6s, z-index 0s 0s;
+}
+
+/* Imagem de capa do card */
+.movie-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: opacity 0.3s ease, border-radius 0.3s;
+    z-index: 2;
+}
+
+/* Iframe de vídeo do card (ex: trailer) */
+.movie-card iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 4px;
+    transition: opacity 0.3s ease, border-radius 0.3s;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Iframe visível quando vídeo está tocando */
+.movie-card iframe.playing {
+    opacity: 1;
+    z-index: 3;
+    border-radius: 6px 6px 0 0;
+}
+
+/* Imagem arredondada ao passar mouse no card */
+.movie-card:hover img {
+    border-radius: 6px 6px 0 0;
+    transition: border-radius 0s 0.6s;
+}
+
+/* Esconde imagem quando vídeo está tocando */
+.movie-card img.playing-video {
+    opacity: 0;
+}
+
+/* Modal de detalhes do card (aparece ao passar mouse) */
+.card-details {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, var(--prime-blue) 80%, var(--prime-cyan-dark) 100%);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding: 18px 16px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s 0s, visibility 0.3s 0s;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 2;
+    cursor: default;
+}
+
+/* Exibe modal de detalhes ao passar mouse no card */
+.movie-card:hover .card-details {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s 0.6s, visibility 0s 0.6s;
+}
+
+/* Container dos botões de ação do card */
+.details-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Botões à esquerda e direita do modal */
+.left-buttons,
+.right-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* Botão circular de ação (ex: adicionar, info) */
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #353535;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Efeito hover no botão de ação */
+.btn-icon:hover {
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Botão de play destacado */
+.btn-play-icon {
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+/* Efeito hover no botão de play */
+.btn-play-icon:hover {
+    background-color: #e6e6e6;
+}
+
+/* Ícone do play ajustado */
+.btn-play-icon i {
+    margin-left: 2px;
+}
+
+/* Selo de resolução (HD, 4K, etc) */
+.resolution {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 1px 3px;
+    border-radius: 2px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Tags de gênero, etc */
+.details-tags {
+    display: flex;
+    gap: 6px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 4px;
+}
+
+/* Separador de tags */
+.details-tags span:not(:last-child)::after {
+    content: "•";
+    color: #666;
+    margin-left: 6px;
+}
+
+/* Responsividade para todos os dispositivos */
+@media (max-width: 1200px) {
+    .sliders-container {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    .movie-card {
+        min-width: 200px;
+        width: 200px;
+        height: 112px;
+    }
+    .slider-title {
+        font-size: 2vw;
+        line-height: 2.5vw;
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 0 2%;
+    }
+    .navbar-left, .navbar-right {
+        flex-direction: row;
+        gap: 10px;
+    }
+    .logo {
+        width: 70px;
+        margin-right: 10px;
+    }
+    .movie-card {
+        min-width: 160px;
+        width: 160px;
+        height: 90px;
+    }
+    .slider-title {
+        font-size: 3vw;
+        line-height: 3.5vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .sliders-container {
+        padding-left: 1%;
+        padding-right: 1%;
+        padding-top: 80px;
+    }
+    .movie-row {
+        gap: 4px;
+        padding: 10px 1% 30px 1%;
+        margin: 0 -1%;
+    }
+    .movie-card {
+        min-width: 120px;
+        width: 120px;
+        height: 70px;
+    }
+    .slider-title {
+        font-size: 4vw;
+        line-height: 4.5vw;
+    }
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-content {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 0 1%;
+    }
+    .logo {
+        width: 54px;
+    }
+    .navbar-right {
+        gap: 6px;
+    }
+    .profile-icon {
+        width: 32px;
+        height: 32px;
+    }
+    .sliders-container {
+        padding-top: 60px;
+    }
+    .movie-card {
+        min-width: 90px;
+        width: 90px;
+        height: 50px;
+    }
+    .slider-title {
+        font-size: 5vw;
+        line-height: 5.5vw;
+    }
+    .footer-links {
+        grid-template-columns: 1fr;
+        font-size: 11px;
+    }
+    .footer-content {
+        font-size: 11px;
+    }
+}
+
+/* Footer (rodapé) */
+footer {
+    padding: 0 4%;
+    color: #737373;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+/* Conteúdo do rodapé centralizado */
+.footer-content {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+/* Parágrafos do rodapé */
+.footer-content p {
+    margin-bottom: 30px;
+}
+
+/* Lista de links do rodapé */
+.footer-links {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}
+
+/* Links do rodapé */
+.footer-links a {
+    color: #737373;
+}
+
+/* Efeito hover nos links do rodapé */
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Linha divisória azul escuro e mais fina para seções */
+.section-divider {
+  border: none;
+  border-top: 0.11rem solid;
+  border-image: linear-gradient(90deg, #003459 0%, #005b96 50%, #003459 100%);
+  border-image-slice: 1;
+  margin: 2.5rem 0 2rem 0;
+  width: 90%;
+  opacity: 0.95;
+  box-shadow: 0 0 6px 0 #00345933;
+}
+

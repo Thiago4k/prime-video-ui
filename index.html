@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página exibido na aba do navegador -->
+    <title>Bem Vindo ao Prime Video</title>
+    <!-- Ícone da aba do navegador -->
+    <link rel="icon" type="image/png" href="assets/playbutton.png">
+    <!-- Importação do arquivo de estilos -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body lang="pt-br"> <div id="splash-screen">
+        <img src="assets/prime-logo.svg" alt="Prime Video Logo" class="splash-logo">
+    </div>
+    <!-- Cabeçalho principal da página -->
+    <header>
+      <h1>Prime Video</h1>
+    </header>
+
+    <main>
+      <!-- Seção principal de escolha de perfis -->
+      <section aria-labelledby="profiles-title">
+        <!-- Título da seção de perfis -->
+        <h2 id="profiles-title">Quem está assistindo?</h2>
+        <!-- Rótulo para escolha de perfil -->
+        <span class="choose-profile-label">Selecionar Perfil:</span>
+        <!-- Lista de perfis disponíveis -->
+        <ul class="profiles">
+          <!-- Perfil 1 -->
+          <li class="profile" role="button" tabindex="0" aria-label="perfil 1">
+            <a href="catalogo/catalogo.html" style="display:block;text-decoration:none;color:inherit;">
+              <figure>
+                <!-- Imagem do perfil 1 -->
+                <img src="assets/perfil-1.jpg" alt="Foto do Capitão Pátria, super-herói com traje azul, vermelho e dourado.">
+                <figcaption>Thiago</figcaption>
+              </figure>
+            </a>
+          </li>
+          <!-- Perfil 2 -->
+          <li class="profile" role="button" tabindex="0" aria-label="perfil 2">
+            <a href="catalogo/catalogo.html" style="display:block;text-decoration:none;color:inherit;">
+              <figure>
+                <!-- Imagem do perfil 2 -->
+                <img src="assets/perfil-2.jpg" alt="Foto de Billy Bruto, expressão séria, usando sobretudo escuro.">
+                <figcaption>Matheus</figcaption>
+              </figure>
+            </a>
+          </li>
+          <!-- Perfil 3 -->
+          <li class="profile" role="button" tabindex="0" aria-label="perfil 3">
+            <a href="catalogo/catalogo.html" style="display:block;text-decoration:none;color:inherit;">
+              <figure>
+                <!-- Imagem do perfil 3 -->
+                <img src="assets/perfil-3.jpg" alt="Foto da Luz-Estrela, uniforme branco e dourado.">
+                <figcaption>Elaine</figcaption>
+              </figure>
+            </a>
+          </li>
+          <!-- Perfil 4 -->
+          <li class="profile" role="button" tabindex="0" aria-label="perfil 4">
+            <a href="catalogo/catalogo.html" style="display:block;text-decoration:none;color:inherit;">
+              <figure>
+                <!-- Imagem do perfil 4 -->
+                <img src="assets/perfil-4.jpg" alt="Foto do Trem-Bala, super-herói com traje azul e raio no peito.">
+                <figcaption>Adalberto</figcaption>
+              </figure>
+            </a>
+          </li>
+          <!-- Botão para adicionar novo perfil -->
+          <li class="profile add-profile" role="button" tabindex="0" aria-label="adicionar outro perfil">
+            <figure>
+              <div class="add-profile-icon" aria-hidden="true" style="display: flex; align-items: center; justify-content: center; height: 140px;">
+                <!-- Ícone de adicionar perfil (SVG) -->
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="11" stroke="#00a8ff" stroke-width="2" fill="none"/>
+                  <path d="M12 8v8M8 12h8" stroke="#00a8ff" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <figcaption class="add-profile-caption" style="text-align: center; color: #00a8ff; font-weight: 600;">Adicionar outro perfil</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Importação do script principal da página -->
+    <script src="index.js"></script>
+  </body>
+</html>

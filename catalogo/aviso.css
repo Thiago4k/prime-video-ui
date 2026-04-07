@@ -1,0 +1,50 @@
+
+body {
+    background: radial-gradient(circle, #1a242e 0%, #0f171e 100%);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa a altura toda da tela */
+}
+img {
+    max-width: 80%;
+    height: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda quase invisível */
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); /* Sombra pesada para dar peso */
+    transition: transform 0.3s ease;
+}
+img:hover {
+    transform: scale(1.02); /* A imagem cresce levemente ao passar o mouse */
+}
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.btn-voltar {
+    background-color: #00A8E1;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s;
+}
+.btn-voltar:hover {
+    background-color: #008dbd; /* Um azul um pouco mais escuro no hover */
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+    animation: fadeIn 0.8s ease-out;
+}
